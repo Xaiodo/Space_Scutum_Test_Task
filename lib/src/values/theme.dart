@@ -11,6 +11,7 @@ final theme = ThemeData(
   dialogTheme: dialogTheme,
   elevatedButtonTheme: elevatedButtonTheme,
   useMaterial3: true,
+  fontFamily: 'Inter',
 );
 
 final elevatedButtonTheme = ElevatedButtonThemeData(
