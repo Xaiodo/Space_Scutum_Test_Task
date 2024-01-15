@@ -5,8 +5,7 @@ final theme = ThemeData(
   colorScheme: ColorScheme.fromSeed(
     seedColor: AppColors.white,
     primary: AppColors.primary,
-    background: AppColors.primary,
-    surface: Colors.red,
+    background: AppColors.backgroundColor,
   ),
   dialogTheme: dialogTheme,
   elevatedButtonTheme: elevatedButtonTheme,
@@ -37,5 +36,23 @@ final dialogTheme = DialogTheme(
   backgroundColor: AppColors.modalBackgroundColor,
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(0),
+  ),
+);
+
+const textTheme = TextTheme(
+  headlineMedium: TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w400,
+    color: AppColors.black,
+  ),
+  bodyLarge: TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.black,
+  ),
+  bodyMedium: TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: AppColors.black,
   ),
 );
