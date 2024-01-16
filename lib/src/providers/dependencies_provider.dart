@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:space_scutum_test_task/src/repositories/houses_repository.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,6 +17,9 @@ class DependenciesProvider extends StatelessWidget {
   Widget build(BuildContext context) => MultiRepositoryProvider(
         providers: [
           RepositoryProvider(create: (context) => database),
+          RepositoryProvider(
+            create: (context) => HouseRepository(database: database),
+          ),
         ],
         child: child,
       );

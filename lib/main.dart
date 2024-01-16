@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:space_scutum_test_task/app/app_view.dart';
 import 'package:space_scutum_test_task/src/database/sqlite_helper.dart';
+import 'package:space_scutum_test_task/src/providers/app_multi_bloc_provider.dart';
 import 'package:space_scutum_test_task/src/providers/dependencies_provider.dart';
 import 'package:space_scutum_test_task/src/values/theme.dart';
 import 'package:sqflite/sqflite.dart';
@@ -19,9 +20,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: theme,
-      home: DependenciesProvider(database: db, child: const AppView()),
+    return DependenciesProvider(
+      database: db,
+      child: AppMultiBlocProvider(
+        child: MaterialApp(
+          theme: theme,
+          home: const AppView(),
+        ),
+      ),
     );
   }
 }
