@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_scutum_test_task/src/pages/lift_page/lift_view.dart';
 import '../house.dart';
 
@@ -8,6 +9,7 @@ class HousesLoaded extends StatelessWidget {
   final List<House> houses;
 
   void _onHousePressed(BuildContext context, House house) {
+    context.read<HouseCubit>().selectHouse(house);
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const LiftView(),

@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:space_scutum_test_task/src/models/house.dart';
 import 'package:space_scutum_test_task/src/pages/house_page/state/house_state.dart';
 import 'package:space_scutum_test_task/src/repositories/houses_repository.dart';
 
@@ -26,7 +27,6 @@ class HouseCubit extends Cubit<HouseState> {
       ));
     } catch (e) {
       emit(state.copyWith(status: HouseStatus.error));
-      print('Error: $e');
     }
   }
 
@@ -36,6 +36,18 @@ class HouseCubit extends Cubit<HouseState> {
     emit(state.copyWith(
       status: HouseStatus.loaded,
       houses: newHouses,
+    ));
+  }
+
+  void selectHouse(House house) {
+    emit(state.copyWith(
+      selectedHouse: house,
+    ));
+  }
+
+  void updateHouse(House house) {
+    emit(state.copyWith(
+      selectedHouse: house,
     ));
   }
 }

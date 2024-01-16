@@ -7,21 +7,25 @@ final class HouseState extends Equatable {
   const HouseState({
     this.status = HouseStatus.empty,
     this.houses = const <House>[],
+    this.selectedHouse,
   });
 
   final HouseStatus status;
   final List<House> houses;
+  final House? selectedHouse;
 
   HouseState copyWith({
     HouseStatus? status,
     List<House>? houses,
+    House? selectedHouse,
   }) {
     return HouseState(
       status: status ?? this.status,
       houses: houses ?? this.houses,
+      selectedHouse: selectedHouse ?? this.selectedHouse,
     );
   }
 
   @override
-  List<Object?> get props => [status, houses];
+  List<Object?> get props => [status, houses, selectedHouse];
 }
