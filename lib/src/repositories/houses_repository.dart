@@ -25,4 +25,13 @@ class HouseRepository {
     final houses = await getHouses();
     return houses;
   }
+
+  Future<void> updateHouse(House house) async {
+    await _database.update(
+      AppConstants.housesTableName,
+      house.toJson(),
+      where: 'id = ?',
+      whereArgs: [house.id],
+    );
+  }
 }
