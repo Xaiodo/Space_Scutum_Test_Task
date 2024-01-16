@@ -40,6 +40,12 @@ class House extends Equatable {
     );
   }
 
+  const House.empty()
+      : id = 0,
+        name = '',
+        floorCount = 0,
+        selectedFloorNumber = 0;
+
   @override
   List<Object?> get props => [id, name, floorCount, selectedFloorNumber];
 }
