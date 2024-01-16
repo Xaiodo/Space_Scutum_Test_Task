@@ -6,6 +6,7 @@ abstract class SqliteHelper {
   static Future<Database> initDatabase() async {
     final directory = await getDatabasesPath();
     final path = join(directory, AppConstants.databaseName);
+
     return await openDatabase(
       path,
       version: 1,
@@ -13,14 +14,16 @@ abstract class SqliteHelper {
     );
   }
 
-  static void _onCreate(Database db, int version) async => await db.execute(
-        '''
-        CREATE TABLE ${AppConstants.housesTableName}(
-          id INTEGER PRIMARY KEY,
-          name TEXT,
-          floorCount INTEGER
-          selectedFloorNumber INTEGER
-        )
-        ''',
-      );
+  static Future<void> _onCreate(Database db, int version) async {
+    await db.execute(
+      '''
+      CREATE TABLE IF NOT EXISTS ${AppConstants.housesTableName}(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        floorCount INTEGER,
+        selectedFloorNumber INTEGER
+      )
+      ''',
+    );
+  }
 }
