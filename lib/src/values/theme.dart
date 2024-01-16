@@ -9,8 +9,14 @@ final theme = ThemeData(
   ),
   dialogTheme: dialogTheme,
   elevatedButtonTheme: elevatedButtonTheme,
+  textTheme: textTheme,
   useMaterial3: true,
   fontFamily: 'Inter',
+  textSelectionTheme: const TextSelectionThemeData(
+    cursorColor: AppColors.black,
+    selectionColor: AppColors.black,
+    selectionHandleColor: AppColors.black,
+  ),
 );
 
 final elevatedButtonTheme = ElevatedButtonThemeData(
@@ -28,6 +34,10 @@ final elevatedButtonTheme = ElevatedButtonThemeData(
         color: AppColors.black,
         width: 1,
       ),
+    ),
+    visualDensity: const VisualDensity(
+      horizontal: 0,
+      vertical: -4,
     ),
   ),
 );

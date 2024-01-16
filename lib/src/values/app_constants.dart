@@ -7,6 +7,15 @@ class AppConstants {
 
   static const String enterButtonText = 'Enter';
 
+  static const String houseListTileLeadingText = 'House';
+  static const String addHouseButtonText = 'Add house';
+  static const String noHousesText = 'Add your first house!';
+
+  static const String addHouseAlertdialogTitle = 'Add house';
+  static const String addHouseAlertdialogNameHint = 'Name';
+  static const String addHouseAlertdialogFloorsCountHint = 'Floors count';
+  static const String addHouseAlertdialogAddButtonText = 'Add';
+
   static const String housesTableName = 'Houses';
 
   static const String catImagePath = 'assets/images/cat.png';
