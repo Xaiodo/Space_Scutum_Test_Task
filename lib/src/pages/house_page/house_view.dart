@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:space_scutum_test_task/src/pages/house_page/widgets/house_loading.dart';
 import 'package:space_scutum_test_task/src/pages/house_page/widgets/houses_empty.dart';
 import 'package:space_scutum_test_task/src/pages/house_page/widgets/houses_error.dart';
 import 'package:space_scutum_test_task/src/pages/house_page/widgets/houses_loaded.dart';
@@ -42,14 +43,12 @@ class HouseView extends StatelessWidget {
                 builder: (context, state) {
                   switch (state.status) {
                     case HouseStatus.loading:
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
+                      return const HouseLoading();
                     case HouseStatus.loaded:
                       return HousesLoaded(houses: state.houses);
                     case HouseStatus.empty:
                       return const HousesEmpty();
-                    default:
+                    case HouseStatus.error:
                       return const HousesError();
                   }
                 },
