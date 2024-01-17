@@ -8,6 +8,6 @@ class AppColors {
   static const Color textFieldBackgroundColor = Color(0xFFE7E6E6);
   static const Color backgroundColor = Color(0xFFE6E6E6);
   static const Color selectedItemColor = Color(0xFF3B8642);
-  static const Color currentLevelColor = Color(0xFFCAC316);
+  static const Color moveToFloorColor = Color(0xFFCAC316);
   static const Color transperent = Colors.transparent;
 }
