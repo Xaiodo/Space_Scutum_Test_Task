@@ -9,6 +9,7 @@ class CustomTitle extends StatelessWidget {
   final Alignment firstItemAlignment;
   final Alignment secondItemAlignment;
   final VoidCallback? iconOnPressed;
+  final bool isAligmentEnabled;
 
   const CustomTitle({
     super.key,
@@ -18,6 +19,7 @@ class CustomTitle extends StatelessWidget {
     this.size = 32,
     this.firstItemAlignment = Alignment.center,
     this.secondItemAlignment = Alignment.centerRight,
+    this.isAligmentEnabled = true,
     this.iconOnPressed,
   });
 
@@ -33,17 +35,29 @@ class CustomTitle extends StatelessWidget {
             ),
           ),
           if (isIconVisible)
-            Align(
-              alignment: secondItemAlignment,
-              child: GestureDetector(
-                onTap: iconOnPressed,
-                child: Icon(
-                  icon,
-                  size: size,
-                  color: AppColors.black,
-                ),
-              ),
-            ),
+            isAligmentEnabled
+                ? Align(
+                    alignment: secondItemAlignment,
+                    child: IconButton(
+                      onPressed: iconOnPressed,
+                      icon: Icon(
+                        icon,
+                        size: size,
+                        color: AppColors.black,
+                      ),
+                    ),
+                  )
+                : Positioned(
+                    right: 22,
+                    child: GestureDetector(
+                      onTap: iconOnPressed,
+                      child: Icon(
+                        icon,
+                        size: size,
+                        color: AppColors.black,
+                      ),
+                    ),
+                  ),
         ],
       );
 }
