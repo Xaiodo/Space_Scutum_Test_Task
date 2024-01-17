@@ -45,8 +45,18 @@ class HouseCubit extends Cubit<HouseState> {
     ));
   }
 
-  void updateHouse(House house) {
+  void updateHouse(House house) async {
+    final updatedHouses = state.houses.map((e) {
+      if (e.id == house.id) {
+        return house;
+      } else {
+        return e;
+      }
+    }).toList();
+
     emit(state.copyWith(
+      status: HouseStatus.loaded,
+      houses: updatedHouses,
       selectedHouse: house,
     ));
   }
