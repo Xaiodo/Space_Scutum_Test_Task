@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_scutum_test_task/src/pages/house_page/widgets/houses_empty.dart';
 import 'package:space_scutum_test_task/src/pages/house_page/widgets/houses_error.dart';
 import 'package:space_scutum_test_task/src/pages/house_page/widgets/houses_loaded.dart';
+import 'package:space_scutum_test_task/src/widgets/custom_button.dart';
 import 'house.dart';
 import 'package:space_scutum_test_task/src/pages/house_page/widgets/house_alert_dialog.dart';
 import 'package:space_scutum_test_task/src/widgets/custom_title.dart';
@@ -27,20 +28,16 @@ class HouseView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(
+              CustomButton(
                 height: 40,
-                child: ElevatedButton(
-                  onPressed: () => _onAddHousePressed(context),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.white,
-                  ),
-                  child: const CustomTitle(
-                    title: AppConstants.addHouseButtonText,
-                    size: 28,
-                  ),
+                backgroundColor: AppColors.white,
+                onPressed: () => _onAddHousePressed(context),
+                child: const CustomTitle(
+                  title: AppConstants.addHouseButtonText,
+                  isAligmentEnabled: false,
+                  size: 28,
                 ),
               ),
-              const SizedBox(height: 30),
               BlocBuilder<HouseCubit, HouseState>(
                 builder: (context, state) {
                   switch (state.status) {

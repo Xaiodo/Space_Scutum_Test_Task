@@ -34,7 +34,7 @@ class _HouseAlertDialogState extends State<HouseAlertDialog> {
           iconOnPressed: () => Navigator.of(context).pop(),
         ),
         contentPadding: const EdgeInsets.only(top: 14),
-        titlePadding: const EdgeInsets.all(6),
+        titlePadding: EdgeInsets.zero,
         actionsPadding: const EdgeInsets.only(bottom: 10, right: 21),
         elevation: 0,
         shape: const RoundedRectangleBorder(
