@@ -16,6 +16,8 @@ class AppConstants {
   static const String addHouseAlertdialogFloorsCountHint = 'Floors count';
   static const String addHouseAlertdialogAddButtonText = 'Add';
 
+  static const String liftPageTitle = 'Floors';
+
   static const String housesTableName = 'Houses';
 
   static const String catImagePath = 'assets/images/cat.png';
