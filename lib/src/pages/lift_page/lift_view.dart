@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:space_scutum_test_task/src/notifications/background_notification_handler.dart';
 import 'package:space_scutum_test_task/src/pages/lift_page/lift.dart';
 import 'package:space_scutum_test_task/src/pages/lift_page/widgets/lift_empty.dart';
 import 'package:space_scutum_test_task/src/pages/lift_page/widgets/lift_error.dart';
@@ -14,6 +15,8 @@ class LiftView extends StatelessWidget {
         create: (context) => LiftCubit(
           houseCubit: context.read<HouseCubit>(),
           repository: context.read<HouseRepository>(),
+          backgroundNotificationHandler:
+              context.read<BackgroundNotificationHandler>(),
         ),
         child: Scaffold(
           body: Stack(

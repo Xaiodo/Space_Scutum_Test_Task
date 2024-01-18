@@ -2,14 +2,17 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:space_scutum_test_task/src/notifications/background_notification_handler.dart';
 import '../lift.dart';
 
 class LiftCubit extends Cubit<LiftState> {
   LiftCubit({
     required HouseRepository repository,
     required HouseCubit houseCubit,
+    required BackgroundNotificationHandler backgroundNotificationHandler,
   })  : _houseRepository = repository,
         _houseCubit = houseCubit,
+        _backgroundNotificationHandler = backgroundNotificationHandler,
         super(
           const LiftState(house: House.empty()),
         ) {
@@ -18,6 +21,7 @@ class LiftCubit extends Cubit<LiftState> {
 
   final HouseRepository _houseRepository;
   final HouseCubit _houseCubit;
+  final BackgroundNotificationHandler _backgroundNotificationHandler;
 
   void init() {
     try {
@@ -65,6 +69,7 @@ class LiftCubit extends Cubit<LiftState> {
                 house: state.house.copyWith(selectedFloorNumber: i),
               ),
             );
+            scheduleNotification();
           });
         }
       } else {
@@ -75,6 +80,7 @@ class LiftCubit extends Cubit<LiftState> {
                 house: state.house.copyWith(selectedFloorNumber: i),
               ),
             );
+            scheduleNotification();
           });
         }
       }
@@ -91,5 +97,12 @@ class LiftCubit extends Cubit<LiftState> {
     } catch (e) {
       emit(state.copyWith(status: LiftStatus.error));
     }
+  }
+
+  void scheduleNotification() {
+    _backgroundNotificationHandler.showNotification(
+      state.house.name,
+      'Lift is on ${state.moveToFloor + 1} floor',
+    );
   }
 }

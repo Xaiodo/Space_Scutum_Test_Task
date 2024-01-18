@@ -21,4 +21,6 @@ class AppConstants {
   static const String housesTableName = 'Houses';
 
   static const String catImagePath = 'assets/images/cat.png';
+
+  static const String methodChannelName = 'com.example.spacetask/methodChannel';
 }
